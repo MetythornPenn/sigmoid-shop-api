@@ -9,11 +9,12 @@ export const dataSourceOptions: DataSourceOptions = {
   username: String(process.env.DB_USERNAME),
   password: String(process.env.DB_PASSWORD),
   database: String(process.env.DB_DATABASE),
-  entities: [],
+  entities: ['dist/**/*.entity{.ts,.js}'],
   migrations: [],
   logging: false,
   subscribers: [],
-  synchronize: false,
+  synchronize: true, // automatically createa entity (table)
+  // synchronize: false, // need to use migration command
 };
 
 const dataSource = new DataSource(dataSourceOptions);
