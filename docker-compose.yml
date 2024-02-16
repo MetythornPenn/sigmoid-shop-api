@@ -1,0 +1,54 @@
+version: "2"
+services:
+  nest:
+    build: .
+    container_name: sigmoid-shop
+    depends_on:
+      - db
+      # - redis
+    volumes:
+      - ./src:/app/src
+      - ./test:/app/test
+      - .env:/app/.env
+      - ./upload:/app/upload
+  # nginx:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile-nginx
+  #   container_name: tfd-nest-nginx
+  #   depends_on:
+  #     - nest
+  #   environment:
+  #     - NGINX_SERVER_NAME=localhost
+  #     - NEST_HOST=nest
+  #     - NEST_PORT=3000
+  #     - NGINX_MAX_BODY=100M
+  #   ports:
+  #     - 80:80
+  db:
+    image: postgres:12
+    container_name: postgres
+    environment:
+      POSTGRES_DB: sigmoid-shop
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+    ports:
+      - 5432:5432
+    volumes:
+      - postgresdata:/var/lib/postgresql
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+  # redis:
+  #   image: redis:5
+  #   container_name: tfd-redis
+  #   ports:
+  #     - 6379:6379
+volumes:
+  postgresdata:

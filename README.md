@@ -45,6 +45,13 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
+## Running with Docker
+```bash
+# build docker image
+$ docker-compose up -d
+
+```
+
 ## Test
 
 ```bash
@@ -58,15 +65,24 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+## Tech Stack
+- Programming: [TypeScript](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html)
+- Framework: [NestJS](https://docs.nestjs.com/)
+- ORM: [TypeORM](https://typeorm.io/)
+- Database: [Postgres]()
+- Container: [Docker]()
+- Server: [DigitalOcean]()
+
+
+
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
 
 ## Stay in touch
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+- Author - [Metythorn Penn](https://kamilmysliwiec.com)
+- Website - [https://sigmoidx.com](https://nestjs.com/)
 
 ## License
 
